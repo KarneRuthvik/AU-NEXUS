@@ -1,0 +1,517 @@
+
+        /* Ensure html and body take up full height */
+        html,body{
+          position: absolute;
+          margin: 0;
+          padding: 0;        
+          scroll-behavior: smooth;
+          height: 100%;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    width: 100%; /* Ensure the nav takes up the full width */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better visibility */
+  }
+  
+
+      /* Container to hold the background, logo, and text animation */
+      .container {
+          position: relative;
+          width: 100vw;
+          height: 100vh;
+      }
+     .middle{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+     }
+
+      /* Logo styling */
+      .logo {    
+        margin: 5px;
+        padding: 5px;     
+        height: 75px;
+        width: 75px;
+
+      }
+      .logomiddle {
+   
+          height: 350px;
+          width: 350px;
+        /*  animation: spin 10ms linear infinite; */
+      }
+
+      /* Typing animation container */
+      .typing {
+        margin-top: 10vw;
+        position: absolute; /* Use absolute positioning */
+        top: 50%; /* Center it vertically */
+        left: 50%; /* Center it horizontally */
+        transform: translate(-50%, -50%); /* Shift it back to truly center */
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 3rem;
+        color: silver; /* Silver color effect */
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 2px solid silver;
+        animation: typing 4s steps(12, end), blink 0.6s step-end infinite;
+        z-index: 10;
+    }
+    
+
+      /* Typing effect keyframes */
+      @keyframes typing {
+          from { width: 0; }
+          to { width: 22ch; } /* Adjust the value to match your text length */
+      }
+
+      /* Blinking cursor effect */
+      @keyframes blink {
+          50% { border-color: transparent; }
+      }
+
+      /* Stop blinking cursor effect */
+      @keyframes stop-blink {
+          to { border-color: silver; }
+      }
+
+      @keyframes spin {
+          from {
+              transform: rotate(0deg);
+          }
+          to {
+              transform: rotate(360deg);
+          }
+      }
+
+      /* Card styling */
+      .card {
+          height: 250px;
+          width: 190px;
+          background-image: linear-gradient(to top, #210c93, #0d117a, #011160, #010e47, #07052e);
+          box-shadow: rgba(0, 0, 0, 0.24) -20px 30px 10px;
+          transform-style: preserve-3d;
+          transform: perspective(400px) rotateX(60deg) rotateZ(-30deg);
+          border-radius: 10px;
+          transition: transform 2s;
+          z-index: 10;
+      }
+
+      .card:hover {
+          transform: rotateY(19deg);
+      }
+
+      .card-section {
+          position: relative;
+          width: 100%;
+          height: auto;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 50px 0;
+          background-color: #f4f4f4;
+      }
+
+      /* Combined About Us, Vision, and Mission Section Styling */
+      .about-us {
+          position: relative;
+          width: 100%;
+          height:950px; /* Adjusted to fit content */
+          padding: 50px 0; /* Reduced padding */
+          background-color: black;
+          z-index: 5;
+      }
+
+      .about-content {
+          position: relative;
+          font-family: 'Courier New', Courier, monospace;
+          max-width: 100%;
+          text-align: left;
+          color: white;
+          z-index: 10;
+          padding: 0 20px;
+          box-sizing: border-box;
+      }
+
+      .about-content h2 {
+          font-size: 3rem;
+          margin-bottom: 30px;
+          color: white;
+          text-align: left;
+          overflow: hidden; /* Ensure text is hidden initially */
+          white-space: nowrap; /* Keep text in one line */
+          border-right: 2px solid silver; /* Cursor effect */
+          width: 0; /* Start with no width */
+      }
+
+      .about-content p {
+          font-size: 1.5rem;
+          line-height: 1.8;
+          max-width: 100%;
+          text-align: left;
+          opacity: 0; /* Start with opacity 0 for fade-in */
+          transition: opacity 1s ease-in-out;
+      }
+
+      .about-content ul {
+          list-style-type:disc;
+          padding: 0;
+      }
+
+      .about-content li {
+          font-size: 1.5rem;
+          line-height: 1.8;
+          max-width: 100%;
+          text-align: left;
+          margin-left:10px;
+          opacity: 0; /* Start with opacity 0 for fade-in */
+          transition: opacity 1s ease-in-out;
+      }
+
+      /* Yellow Sparks Effect */
+      .about-us::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: radial-gradient(circle, rgba(255, 255, 0, 0.3) 10%, transparent 10.01%);
+          background-size: 20px 20px;
+          animation: sparkle 2s linear infinite;
+          z-index: 1;
+      }
+
+      /* Sparkle Animation */
+      @keyframes sparkle {
+          0% {
+              opacity: 0.5;
+              background-position: 0 0;
+          }
+          50% {
+              opacity: 1;
+              background-position: 20px 20px;
+          }
+          100% {
+              opacity: 0.5;
+              background-position: 40px 40px;
+          }
+      }
+
+      /* Scroll Down Arrow */
+      .arrow {
+          position: absolute;
+          bottom: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 10;
+          animation: bounce 2s infinite;
+          font-size: 2rem;
+          color: grey;
+          cursor: pointer;
+      }
+
+      .arrow:hover {
+          animation: bounce 1s infinite;
+      }
+
+      /* Bounce Animation */
+      @keyframes bounce {
+          0%, 20%, 50%, 80%, 100% {
+              transform: translateY(0) translateX(-50%);
+          }
+          40% {
+              transform: translateY(-20px) translateX(-50%);
+          }
+          60% {
+              transform: translateY(-10px) translateX(-50%);
+          }
+      }
+/*Media queries*/
+@media screen and (max-width: 768px) {
+  /* Styles for devices with a width of 768px or less (Tablets and small screens) */
+  .container {
+      height: auto; /* Adjust height */
+  }
+
+  .about-us {
+      height: 800px; /* Adjusted height for smaller screens */
+  }
+
+  .logo {
+      height: 120px;
+      width: 120px; /* Resize logo */
+  }
+
+  .logomiddle {
+      margin-left: 25vw;
+      height: 250px;
+      width: 250px; /* Adjust size */
+  }
+
+  .typing {
+      font-size: 2rem; /* Adjust text size */
+      margin-left: 0;
+      transform: translate(-50%, -50%);
+  }
+
+  .card {
+      width: 100%;
+      height: auto; /* Ensure card takes full width */
+  }
+
+  /* You can adjust more properties like padding, margin, etc. */
+}
+
+@media screen and (max-width: 480px) {
+  /* Styles for devices with a width of 480px or less (Mobile screens) */
+  .container {
+      height: auto; /* Adjust height */
+  }
+
+  .about-us {
+      height: 600px; /* Further adjustment for smaller mobile screens */
+  }
+
+  .logo {
+      height: 100px;
+      width: 100px; /* Resize logo */
+  }
+
+  .logomiddle {
+      margin-left: 15vw;
+      height: 200px;
+      width: 200px; /* Adjust size */
+  }
+
+  .typing {
+      font-size: 1.5rem; /* Adjust text size */
+      margin-left: 0;
+      transform: translate(-50%, -50%);
+  }
+
+  .card {
+      width: 90%;
+      height: auto; /* Ensure card takes full width */
+  }
+
+  .about-content h2 {
+      font-size: 2rem; /* Adjust heading size */
+  }
+
+  .about-content p,
+  .about-content li {
+      font-size: 1.2rem; /* Adjust text size */
+  }
+}
+#checkbox {
+    display: none;
+}
+
+.toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition-duration: .5s;
+    z-index: 1000; /* Ensure it's above other elements */
+}
+
+.bars {
+    width: 100%;
+    height: 4px;
+    background-color: rgb(176, 92, 255);
+    border-radius: 4px;
+}
+
+#bar2 {
+    transition-duration: .8s;
+}
+
+#bar1, #bar3 {
+    width: 70%;
+}
+
+#checkbox:checked + .toggle .bars {
+    position: absolute;
+    transition-duration: .5s;
+}
+
+#checkbox:checked + .toggle #bar2 {
+    transform: scaleX(0);
+    transition-duration: .5s;
+}
+
+#checkbox:checked + .toggle #bar1 {
+    width: 100%;
+    transform: rotate(45deg);
+    transition-duration: .5s;
+}
+
+#checkbox:checked + .toggle #bar3 {
+    width: 100%;
+    transform: rotate(-45deg);
+    transition-duration: .5s;
+}
+
+#checkbox:checked + .toggle {
+    transition-duration: .5s;
+    transform: rotate(180deg);
+}
+
+/* Sidebar Styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px; /* Hide sidebar by default */
+    width: 300px;
+    height: 100%;
+    background-color: #07052e;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: right 0.3s ease-in-out;
+    z-index: 999; /* Ensure it's below the toggle button */
+}
+
+.sidebar.open {
+    right: 0; /* Show sidebar when open */
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 80px 20px 0 20px; /* Add margin to avoid overlap with toggle */
+}
+
+.sidebar ul li {
+    margin: 20px 0;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-family: 'Courier New', Courier, monospace;
+    transition: color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    color: rgb(176, 92, 255); /* Change color on hover */
+}
+
+/* Close Button Styles */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: rgb(176, 92, 255); /* Change color on hover */
+}
+/* Podcast Section Styling */
+.podcast-section {
+    position: relative;
+    width: 100%;
+    height:1000px;
+    padding: 50px 0;
+    background-color:black;
+    color: white;
+    text-align: center;
+    z-index: 5;
+}
+
+.podcast-section h2 {
+    font-size: 3rem;
+    margin-bottom: 50px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.laptop-screens {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.laptop {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background-color: #1a1a1a;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+.screen {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 40px;
+    background-color: black;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.screen video {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.keyboard {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background-color: #333;
+    border-radius: 0 0 15px 15px;
+}
+
+
+/* From Uiverse.io by niat786 */ 
+/* From Uiverse.io by niat786 */ 
+.view{
+    border-radius: .25rem;
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: 400;
+    margin-top:10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    color: #fff;
+    -webkit-clip-path: polygon(0 0,0 0,100% 0,100% 0,100% calc(100% - 15px),calc(100% - 15px) 100%,15px 100%,0 100%);
+    clip-path: polygon(0 0,0 0,100% 0,100% 0,100% calc(100% - 15px),calc(100% - 15px) 100%,15px 100%,0 100%);
+    height: 40px;
+    font-size: 0.7rem;
+    line-height: 14px;
+    letter-spacing: 1.2px;
+    -webkit-transition: .2s .1s;
+    transition: .2s .1s;
+    background-image: -webkit-gradient(linear,left top, right top,from(#1c1c1c),to(#000000));
+    background-image: linear-gradient(90deg,#1c1c1c,#000000);
+    border: 0 solid;
+    overflow: hidden;
+  }
+  
+.view:hover {
+    cursor: pointer;
+    -webkit-transition: all .3s ease-in;
+    transition: all .3s ease-in;
+    padding-right: 30px;
+    padding-left: 30px;
+  }
